@@ -6,11 +6,23 @@ class User(models.Model):
 
 
 class Post(models.Model):
-    content = models.CharField(max_length=5000)
+    content = models.CharField(max_length=2200)
     favor = models.BooleanField(default=False)
 
 
 class Image(models.Model):
-    post_id = models.IntegerField(default=0)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     index = models.IntegerField(default=0)
-    
+    image = models.ImageField(default='default_image.png')
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    index = models.IntegerField(default=0)
+    content = models.CharField(max_length=2200)
+
+
+class Reply(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    index = models.IntegerField(default=0)
+    content = models.CharField(max_length=2200)
