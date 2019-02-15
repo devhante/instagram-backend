@@ -31,5 +31,5 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
 
 class ReplySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Replay
+        model = Reply
         fields = ('comment', 'index', 'content')
