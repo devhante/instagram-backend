@@ -13,5 +13,6 @@ gunicorn = "*"
 djangorestframework = "*"
 pillow = "*"
 whitenoise = "*"
+dj-database-url = "*"
 
 [dev-packages]
