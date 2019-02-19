@@ -14,7 +14,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
-        fields = ('id', 'writer', 'content', 'favor')
+        fields = ('id', 'writer', 'content', 'date' 'favor')
 
 
 class ImageSerializer(serializers.HyperlinkedModelSerializer):
@@ -26,10 +26,10 @@ class ImageSerializer(serializers.HyperlinkedModelSerializer):
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'post', 'index', 'content')
+        fields = ('id', 'post', 'index', 'content', 'date')
 
 
 class ReplySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Reply
-        fields = ('id', 'comment', 'index', 'content')
+        fields = ('id', 'comment', 'index', 'content', 'date')
