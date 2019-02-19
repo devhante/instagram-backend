@@ -43,6 +43,8 @@ class PostList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        data = request.data
+        data[user] = User.objects.filter(username=data[user])
         serializer = PostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
