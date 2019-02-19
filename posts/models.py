@@ -9,7 +9,7 @@ class User(models.Model):
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     writer = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    content = models.CharField(max_length=2200)
+    content = models.CharField(max_length=2200, blank=True)
     date = models.DateField(default=timezone.now)
     favor = models.BooleanField(default=False)
 
