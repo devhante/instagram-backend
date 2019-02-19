@@ -9,6 +9,7 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     writer = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     content = models.CharField(max_length=2200)
+    date = models.DateField(auto_now_add=True, blank=True)
     favor = models.BooleanField(default=False)
 
 
@@ -24,6 +25,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     index = models.IntegerField(default=0)
     content = models.CharField(max_length=2200)
+    date = models.DateField(auto_now_add=True, blank=True)
 
 
 class Reply(models.Model):
@@ -31,3 +33,4 @@ class Reply(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     index = models.IntegerField(default=0)
     content = models.CharField(max_length=2200)
+    date = models.DateField(auto_now_add=True, blank=True)
